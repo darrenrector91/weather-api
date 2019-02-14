@@ -1,0 +1,26 @@
+{
+  "name": "json-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.7.7",
+    "angular-animate": "^1.7.7",
+    "angular-aria": "^1.7.7",
+    "angular-cookies": "^1.7.7",
+    "angular-material": "^0.9.8",
+    "angular-messages": "^1.7.7",
+    "angular-route": "^1.7.7",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "nodemon": "^1.18.10"
+  }
+}
