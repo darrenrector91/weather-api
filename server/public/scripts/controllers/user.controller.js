@@ -5,15 +5,20 @@ myApp.controller("UserController", [
     console.log("UserController created");
     var self = this;
     self.userService = UserService;
-    self.userObject = UserService.userObject;
+    self.weatherReport = UserService.weatherReport;
 
-    // Setting a cookie
-    $cookies.myFavorite = "oatmeal";
+    console.log(self.weatherReport);
 
-    // Retrieving a cookie
-    var favoriteCookie = $cookies.myFavorite;
-    console.log(favoriteCookie);
+    self.getWeather = function(data) {
+      //console.log(data);
+      UserService.locationData(data);
+    };
 
-    var list = [];
+    // TODO: show data on DOM
+    self.temperature = function() {
+      console.log(data);
+      UserService.weatherReport(data);
+      console.log("from service in controller ", data);
+    };
   }
 ]);
