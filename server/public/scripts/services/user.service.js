@@ -3,16 +3,14 @@ myApp.service("UserService", [
   "$location",
   "$cookies",
   function($http, $location, $cookies) {
-    console.log("UserService Loaded");
+    // console.log("UserService Loaded");
     var self = this;
 
     self.getWeather = {
       data: {}
     };
 
-    self.weatherReport = {
-      data: {}
-    };
+    self.weatherReport = {};
 
     self.locationData = function(data) {
       console.log(data.latitude, data.longitude);
@@ -25,7 +23,11 @@ myApp.service("UserService", [
         )
         .then(function(response) {
           console.log(response);
-          self.weatherReport.data = response.data;
+          self.weatherReport.hourly = response.data.hourly;
+          self.weatherReport.daily = response.data.daily;
+          self.weatherReport.latitude = response.data.latitude;
+          self.weatherReport.longitude = response.data.longitude;
+          console.log(self.weatherReport);
         })
         .catch(function(response) {
           console.log("error on get request", response);

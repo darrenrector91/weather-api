@@ -15,7 +15,7 @@ myApp.config([
   "$routeProvider",
   "$locationProvider",
   function($routeProvider, $locationProvider) {
-    console.log("myApp -- config");
+    // console.log("myApp -- config");
     $routeProvider
       .when("/", {
         templateUrl: "/views/templates/test.html",
