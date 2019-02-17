@@ -27,6 +27,8 @@ myApp.service("UserService", [
           self.weatherReport.daily = response.data.daily;
           self.weatherReport.latitude = response.data.latitude;
           self.weatherReport.longitude = response.data.longitude;
+          self.weatherReport.current = response.data.currently;
+
           console.log(self.weatherReport);
         })
         .catch(function(response) {

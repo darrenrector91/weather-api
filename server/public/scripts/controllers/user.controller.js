@@ -1,13 +1,11 @@
 myApp.controller("UserController", [
   "UserService",
   "$cookies",
-  function(UserService, $cookies) {
+  function(UserService, $cookies, geolocation) {
     // console.log("UserController created");
     var self = this;
     self.userService = UserService;
     self.weatherReport = UserService.weatherReport;
-
-    //console.log(self.weatherReport);
 
     self.getWeather = function(data) {
       console.log(data.latitude);

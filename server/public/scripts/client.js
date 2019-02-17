@@ -1,5 +1,11 @@
 var myApp = angular
-  .module("myApp", ["ngRoute", "ngMaterial", "ngMessages", "ngCookies"])
+  .module("myApp", [
+    "ngRoute",
+    "ngMaterial",
+    "ngMessages",
+    "ngCookies",
+    "geolocation"
+  ])
   .config(function($mdThemingProvider) {
     $mdThemingProvider
       .theme("default")

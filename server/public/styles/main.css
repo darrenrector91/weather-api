@@ -1,3 +1,12 @@
 #weatherForm {
   margin: 40px auto;
 }
+
+.weatherDataTitle {
+  font-size: 25px;
+}
+
+.weatherDataDesc {
+  font-size: 20px;
+  color: rgb(38, 55, 204);
+}
