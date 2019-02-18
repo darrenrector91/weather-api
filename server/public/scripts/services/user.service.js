@@ -22,7 +22,7 @@ myApp.service("UserService", [
             position.coords.longitude
         )
         .then(function(response) {
-          //console.log(response);
+          console.log(response);
           self.weatherReport.hourly = response.data.hourly;
           self.weatherReport.daily = response.data.daily;
           self.weatherReport.latitude = response.data.latitude;
