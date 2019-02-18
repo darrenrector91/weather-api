@@ -4,7 +4,9 @@ var myApp = angular
     "ngMaterial",
     "ngMessages",
     "ngCookies",
-    "geolocation"
+    "geolocation",
+    "ngMap",
+    "ngGeolocation"
   ])
   .config(function($mdThemingProvider) {
     $mdThemingProvider
