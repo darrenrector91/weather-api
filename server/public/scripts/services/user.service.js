@@ -15,6 +15,8 @@ myApp.service("UserService", [
       time: {}
     };
 
+    self.dailyTime = {};
+
     self.locationData = function(position) {
       //console.log(position.coords.latitude, position.coords.longitude);
       return $http
@@ -32,11 +34,20 @@ myApp.service("UserService", [
           self.weatherReport.longitude = response.data.longitude;
           self.weatherReport.current = response.data.currently;
           self.currentTime = response.data.currently.time;
-          // console.log(self.currentTime);
+          self.dailyTime = response.data.daily.data[1].time;
+          daily = self.dailyTime;
+          self.dateConvert(daily);
         })
         .catch(function(response) {
           console.log("error on get request", response);
         });
     }; //end locationData
+
+    self.dateConvert = function(timeEx) {
+      let dateString = moment.unix(timeEx);
+      let date = dateString._d;
+      let day = moment(date).format("dddd MMMM Do");
+      console.log(day);
+    };
   }
 ]);
