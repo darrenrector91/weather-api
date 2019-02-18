@@ -25,6 +25,7 @@
     "express-session": "^1.15.6",
     "http-proxy": "^1.17.0",
     "leaflet": "^1.4.0",
+    "moment": "^2.24.0",
     "ngGeolocation": "0.0.7",
     "ngmap": "^1.18.5",
     "nodemon": "^1.18.10"
