@@ -6,7 +6,8 @@ var myApp = angular
     "ngCookies",
     "geolocation",
     "ngMap",
-    "ngGeolocation"
+    "ngGeolocation",
+    "angularMoment"
   ])
   .config(function($mdThemingProvider) {
     $mdThemingProvider

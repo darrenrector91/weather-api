@@ -11,6 +11,9 @@ myApp.service("UserService", [
     };
 
     self.weatherReport = {};
+    self.currentTime = {
+      time: {}
+    };
 
     self.locationData = function(position) {
       //console.log(position.coords.latitude, position.coords.longitude);
@@ -28,6 +31,8 @@ myApp.service("UserService", [
           self.weatherReport.latitude = response.data.latitude;
           self.weatherReport.longitude = response.data.longitude;
           self.weatherReport.current = response.data.currently;
+          self.currentTime = response.data.currently.time;
+          // console.log(self.currentTime);
         })
         .catch(function(response) {
           console.log("error on get request", response);
