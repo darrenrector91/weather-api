@@ -9,8 +9,12 @@ myApp.controller("UserController", [
     self.userService = UserService;
     self.weatherReport = UserService.weatherReport;
     self.dayDate = UserService.dayDate;
-    self.day = UserService.day;
-    console.log(self.day);
+    // self.day = UserService.day;
+    // console.log(self.day);
+    self.convertedDay = UserService.convertedDay;
+    console.log(self.convertedDay);
+    self.convertedMonth = UserService.convertedMonth;
+    console.log(self.convertedMonth);
 
     $geolocation
       .getCurrentPosition({

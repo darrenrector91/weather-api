@@ -13,6 +13,12 @@ myApp.service("UserService", [
     self.day = {
       list: {}
     };
+    self.convertedDay = {
+      list: {}
+    };
+    self.convertedMonth = {
+      list: {}
+    };
 
     self.locationData = function(position) {
       //console.log(position.coords.latitude, position.coords.longitude);
@@ -41,7 +47,7 @@ myApp.service("UserService", [
 
           for (let i = 0; i < getDaily.length; i++) {
             let unixTime = getDaily[i].time;
-            console.log(unixTime);
+            // console.log(unixTime);
             dataObj.push(unixTime);
             // console.log(dataObj);
 
@@ -62,14 +68,20 @@ myApp.service("UserService", [
         });
     }; //end locationData
 
+    let convDay = [];
+    let convMonth = [];
     self.dateConvert = function(data) {
       for (let i = 0; i < data.length; i++) {
         let dateString = moment.unix(data[i]);
         let date = dateString._d;
-        let day = moment(date).format("dddd ");
+        let day = moment(date).format("dddd");
         let monthDate = moment(date).format("MMMM Do");
-        console.log(day);
-        console.log(monthDate);
+
+        convDay.push(day);
+        self.convertedDay.list = convDay;
+
+        convMonth.push(monthDate);
+        self.convertedMonth.list = convMonth;
       }
     };
   }
