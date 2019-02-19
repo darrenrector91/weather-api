@@ -13,9 +13,7 @@ myApp.controller("UserController", [
     self.convertedMonth = UserService.convertedMonth;
     self.hiTemp = UserService.hiTemp;
     self.lowTemp = UserService.lowTemp;
-    console.log(self.lowTemp);
     self.sum = UserService.sum;
-    console.log(self.sum);
 
     $geolocation
       .getCurrentPosition({

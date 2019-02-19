@@ -10,24 +10,12 @@ myApp.service("UserService", [
     self.weatherReport = {};
     self.currentTime = { time: {} };
     self.dailyTime = {};
-    self.day = {
-      list: {}
-    };
-    self.convertedDay = {
-      list: {}
-    };
-    self.convertedMonth = {
-      list: {}
-    };
-    self.hiTemp = {
-      list: {}
-    };
-    self.lowTemp = {
-      list: {}
-    };
-    self.sum = {
-      list: {}
-    };
+    self.day = { list: {} };
+    self.convertedDay = { list: {} };
+    self.convertedMonth = { list: {} };
+    self.hiTemp = { list: {} };
+    self.lowTemp = { list: {} };
+    self.sum = { list: {} };
 
     self.locationData = function(position) {
       //console.log(position.coords.latitude, position.coords.longitude);
