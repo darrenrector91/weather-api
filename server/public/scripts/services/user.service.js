@@ -6,16 +6,13 @@ myApp.service("UserService", [
     // console.log("UserService Loaded");
     var self = this;
 
-    self.getWeather = {
-      data: {}
-    };
-
+    self.getWeather = { data: {} };
     self.weatherReport = {};
-    self.currentTime = {
-      time: {}
-    };
-
+    self.currentTime = { time: {} };
     self.dailyTime = {};
+    self.day = {
+      list: {}
+    };
 
     self.locationData = function(position) {
       //console.log(position.coords.latitude, position.coords.longitude);
@@ -27,7 +24,7 @@ myApp.service("UserService", [
             position.coords.longitude
         )
         .then(function(response) {
-          console.log(response);
+          //console.log(response);
           self.weatherReport.hourly = response.data.hourly;
           self.weatherReport.daily = response.data.daily;
           self.weatherReport.latitude = response.data.latitude;
@@ -35,19 +32,45 @@ myApp.service("UserService", [
           self.weatherReport.current = response.data.currently;
           self.currentTime = response.data.currently.time;
           self.dailyTime = response.data.daily.data[1].time;
-          daily = self.dailyTime;
-          self.dateConvert(daily);
+          self.weatherReport.days = response.data.daily.data;
+          let getDaily = self.weatherReport.days;
+          //console.log(getDaily);
+
+          let dataObj = [];
+          self.day.list = [];
+
+          for (let i = 0; i < getDaily.length; i++) {
+            let unixTime = getDaily[i].time;
+            console.log(unixTime);
+            dataObj.push(unixTime);
+            // console.log(dataObj);
+
+            //self.dateConvert(unixTime);
+          }
+          if (dataObj != null) {
+            //console.log(dataObj);
+            self.day.list.push(dataObj);
+            dataObj = self.day.list;
+            //console.log(self.day.list);
+          }
+          let dayList = self.day.list;
+          // console.log(dayList);
+          self.dateConvert(dayList[0]);
         })
         .catch(function(response) {
           console.log("error on get request", response);
         });
     }; //end locationData
 
-    self.dateConvert = function(timeEx) {
-      let dateString = moment.unix(timeEx);
-      let date = dateString._d;
-      let day = moment(date).format("dddd MMMM Do");
-      console.log(day);
+    self.dateConvert = function(data) {
+      for (let i = 0; i < data.length; i++) {
+        let dateString = moment.unix(data[i]);
+        let date = dateString._d;
+        let day = moment(date).format("dddd ");
+        let monthDate = moment(date).format("MMMM Do");
+        console.log(day);
+        console.log(monthDate);
+      }
     };
   }
 ]);
