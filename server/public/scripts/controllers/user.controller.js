@@ -9,12 +9,13 @@ myApp.controller("UserController", [
     self.userService = UserService;
     self.weatherReport = UserService.weatherReport;
     self.dayDate = UserService.dayDate;
-    // self.day = UserService.day;
-    // console.log(self.day);
     self.convertedDay = UserService.convertedDay;
-    console.log(self.convertedDay);
     self.convertedMonth = UserService.convertedMonth;
-    console.log(self.convertedMonth);
+    self.hiTemp = UserService.hiTemp;
+    self.lowTemp = UserService.lowTemp;
+    console.log(self.lowTemp);
+    self.sum = UserService.sum;
+    console.log(self.sum);
 
     $geolocation
       .getCurrentPosition({
@@ -28,19 +29,5 @@ myApp.controller("UserController", [
       .catch(function(error) {
         console.log(error);
       });
-
-    let dayName = [];
-    self.dateConvert = function(data) {
-      let dateString = moment.unix(data);
-      let date = dateString._d;
-      //let dateCombo = moment(date).format("dddd MMMM Do");
-      let day = moment(date).format("dddd ");
-      let monthDate = moment(date).format("MMMM Do");
-      console.log(day);
-      //console.log(monthDate);
-      dayName.push(day);
-      console.log(dayName);
-      console.log(dayName.length);
-    };
   }
 ]);

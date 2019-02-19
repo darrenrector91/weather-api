@@ -19,6 +19,15 @@ myApp.service("UserService", [
     self.convertedMonth = {
       list: {}
     };
+    self.hiTemp = {
+      list: {}
+    };
+    self.lowTemp = {
+      list: {}
+    };
+    self.sum = {
+      list: {}
+    };
 
     self.locationData = function(position) {
       //console.log(position.coords.latitude, position.coords.longitude);
@@ -30,7 +39,7 @@ myApp.service("UserService", [
             position.coords.longitude
         )
         .then(function(response) {
-          //console.log(response);
+          console.log(response);
           self.weatherReport.hourly = response.data.hourly;
           self.weatherReport.daily = response.data.daily;
           self.weatherReport.latitude = response.data.latitude;
@@ -40,27 +49,41 @@ myApp.service("UserService", [
           self.dailyTime = response.data.daily.data[1].time;
           self.weatherReport.days = response.data.daily.data;
           let getDaily = self.weatherReport.days;
-          //console.log(getDaily);
 
           let dataObj = [];
           self.day.list = [];
 
+          let hiTemp = [];
+          self.hiTemp.list = [];
+
+          let lowTemp = [];
+          self.lowTemp.list = [];
+
+          let sum = [];
+          self.sum.list = [];
+
           for (let i = 0; i < getDaily.length; i++) {
             let unixTime = getDaily[i].time;
-            // console.log(unixTime);
             dataObj.push(unixTime);
-            // console.log(dataObj);
 
-            //self.dateConvert(unixTime);
+            let tempHi = getDaily[i].temperatureHigh;
+            let a = tempHi.toFixed(0);
+            hiTemp.push(a);
+            hiTemp = self.hiTemp.list;
+
+            let tempLow = getDaily[i].temperatureLow;
+            let b = tempLow.toFixed(0);
+            lowTemp.push(b);
+            lowTemp = self.lowTemp.list;
+
+            let sum = getDaily[i].summary;
+            self.sum.list.push(sum);
           }
           if (dataObj != null) {
-            //console.log(dataObj);
             self.day.list.push(dataObj);
             dataObj = self.day.list;
-            //console.log(self.day.list);
           }
           let dayList = self.day.list;
-          // console.log(dayList);
           self.dateConvert(dayList[0]);
         })
         .catch(function(response) {
