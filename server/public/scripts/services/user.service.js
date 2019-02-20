@@ -74,6 +74,9 @@ myApp.service("UserService", [
           self.sum.list = [];
 
           for (let i = 0; i < getDaily.length; i++) {
+            let icon = getDaily[i].icon;
+            console.log(icon);
+
             let unixTime = getDaily[i].time;
             dataObj.push(unixTime);
 
