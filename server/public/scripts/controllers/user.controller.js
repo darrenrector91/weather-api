@@ -14,6 +14,8 @@ myApp.controller("UserController", [
     self.hiTemp = UserService.hiTemp;
     self.lowTemp = UserService.lowTemp;
     self.sum = UserService.sum;
+    self.weatherReport.humidity = UserService.humidity;
+    self.weatherReport.temp = UserService.temp;
 
     $geolocation
       .getCurrentPosition({

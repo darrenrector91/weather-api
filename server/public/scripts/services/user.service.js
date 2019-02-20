@@ -6,16 +6,32 @@ myApp.service("UserService", [
     // console.log("UserService Loaded");
     var self = this;
 
-    self.getWeather = { data: {} };
     self.weatherReport = {};
-    self.currentTime = { time: {} };
     self.dailyTime = {};
-    self.day = { list: {} };
-    self.convertedDay = { list: {} };
-    self.convertedMonth = { list: {} };
-    self.hiTemp = { list: {} };
-    self.lowTemp = { list: {} };
-    self.sum = { list: {} };
+    self.getWeather = {
+      data: {}
+    };
+    self.currentTime = {
+      time: {}
+    };
+    self.day = {
+      list: {}
+    };
+    self.convertedDay = {
+      list: {}
+    };
+    self.convertedMonth = {
+      list: {}
+    };
+    self.hiTemp = {
+      list: {}
+    };
+    self.lowTemp = {
+      list: {}
+    };
+    self.sum = {
+      list: {}
+    };
 
     self.locationData = function(position) {
       //console.log(position.coords.latitude, position.coords.longitude);
@@ -37,6 +53,13 @@ myApp.service("UserService", [
           self.dailyTime = response.data.daily.data[1].time;
           self.weatherReport.days = response.data.daily.data;
           let getDaily = self.weatherReport.days;
+          self.weatherReport.humidity = (
+            response.data.currently.humidity * 100
+          ).toFixed(0);
+          //let humidity = self.weatherReport.humidity.toFixed(0);
+          self.weatherReport.temp = response.data.currently.temperature.toFixed(
+            0
+          );
 
           let dataObj = [];
           self.day.list = [];
