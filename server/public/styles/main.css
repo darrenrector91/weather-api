@@ -1,3 +1,7 @@
+body,
+html {
+  background-color: rgb(190, 190, 190) !important;
+}
 #weatherForm {
   margin: 40px auto;
 }
@@ -9,4 +13,14 @@
 .weatherDataDesc {
   font-size: 20px;
   color: rgb(38, 55, 204);
+}
+
+.snow {
+  /* background-image: url("../images/icons/Snow.png") no-repeat; */
+  color: white;
+  height: 90px;
+  width: 130px;
+  position: relative;
+  bottom: 5px;
+  z-index: 9999;
 }

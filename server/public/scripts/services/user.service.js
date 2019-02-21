@@ -17,6 +17,9 @@ myApp.service("UserService", [
     self.day = {
       list: {}
     };
+    self.dailyIcon = {
+      list: {}
+    };
     self.convertedDay = {
       list: {}
     };
@@ -43,7 +46,7 @@ myApp.service("UserService", [
             position.coords.longitude
         )
         .then(function(response) {
-          console.log(response);
+          //console.log(response);
           self.weatherReport.hourly = response.data.hourly;
           self.weatherReport.daily = response.data.daily;
           self.weatherReport.latitude = response.data.latitude;
@@ -56,7 +59,6 @@ myApp.service("UserService", [
           self.weatherReport.humidity = (
             response.data.currently.humidity * 100
           ).toFixed(0);
-          //let humidity = self.weatherReport.humidity.toFixed(0);
           self.weatherReport.temp = response.data.currently.temperature.toFixed(
             0
           );
@@ -73,9 +75,15 @@ myApp.service("UserService", [
           let sum = [];
           self.sum.list = [];
 
+          let dailyIcon = [];
+          self.dailyIcon.list = [];
+          console.log(self.dailyIcon.list);
+
           for (let i = 0; i < getDaily.length; i++) {
+            //console.log(getDaily);
+
             let icon = getDaily[i].icon;
-            console.log(icon);
+            dailyIcon.push(icon);
 
             let unixTime = getDaily[i].time;
             dataObj.push(unixTime);
@@ -93,6 +101,11 @@ myApp.service("UserService", [
             let sum = getDaily[i].summary;
             self.sum.list.push(sum);
           }
+          if (dailyIcon != null) {
+            self.dailyIcon.list.push(dailyIcon);
+            dailyIcon = self.dailyIcon.list;
+          }
+
           if (dataObj != null) {
             self.day.list.push(dataObj);
             dataObj = self.day.list;
@@ -105,6 +118,7 @@ myApp.service("UserService", [
         });
     }; //end locationData
 
+    //convert day and month unix to human readable dates
     let convDay = [];
     let convMonth = [];
     self.dateConvert = function(data) {
