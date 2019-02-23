@@ -17,9 +17,6 @@ myApp.service("UserService", [
     self.day = {
       list: {}
     };
-    self.dailyIcon = {
-      list: {}
-    };
     self.convertedDay = {
       list: {}
     };
@@ -35,7 +32,6 @@ myApp.service("UserService", [
     self.sum = {
       list: {}
     };
-
     self.icon = {
       list: {}
     };
@@ -79,10 +75,6 @@ myApp.service("UserService", [
           let sum = [];
           self.sum.list = [];
 
-          let dailyIcon = [];
-          self.dailyIcon.list = [];
-          console.log(self.dailyIcon.list);
-
           let j = [];
           console.log(j);
           self.icon.list = [];
@@ -95,8 +87,6 @@ myApp.service("UserService", [
             // console.log(icon);
             j.push(icon);
             j = self.icon.list;
-            let icon = getDaily[i].icon;
-            dailyIcon.push(icon);
 
             let unixTime = getDaily[i].time;
             dataObj.push(unixTime);
@@ -114,11 +104,6 @@ myApp.service("UserService", [
             let sum = getDaily[i].summary;
             self.sum.list.push(sum);
           }
-          if (dailyIcon != null) {
-            self.dailyIcon.list.push(dailyIcon);
-            dailyIcon = self.dailyIcon.list;
-          }
-
           if (dataObj != null) {
             self.day.list.push(dataObj);
             dataObj = self.day.list;
