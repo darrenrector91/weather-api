@@ -76,15 +76,12 @@ myApp.service("UserService", [
           self.sum.list = [];
 
           let j = [];
-          console.log(j);
           self.icon.list = [];
-          console.log(self.icon.list);
 
           for (let i = 0; i < getDaily.length; i++) {
             //console.log(getDaily);
 
             let icon = getDaily[i].icon;
-            // console.log(icon);
             j.push(icon);
             j = self.icon.list;
 
