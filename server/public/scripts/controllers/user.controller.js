@@ -15,7 +15,8 @@ myApp.controller("UserController", [
     self.sum = UserService.sum;
     self.weatherReport.humidity = UserService.humidity;
     self.weatherReport.temp = UserService.temp;
-    self.dailyIcon = UserService.dailyIcon;
+    self.icon = UserService.icon;
+    console.log(self.icon);
 
     $geolocation
       .getCurrentPosition({
