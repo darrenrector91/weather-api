@@ -36,35 +36,11 @@ myApp.service("UserService", [
     self.icon = {
       list: {}
     };
-    self.streetNumber = {
-      list: {}
-    };
-
-    street = [];
-    console.log(street);
-
-    self.streetNumber.list = [];
 
     self.locationData = function(position) {
       let lat = position.coords.latitude;
       let long = position.coords.longitude;
-      reverseGeocode.geocodePosition(lat, long, function(address) {
-        let removeZip = address.replace(/\d{5}/, "");
-        let removeUSA = removeZip.replace("USA", "");
-        let streetAddress = removeUSA.split(",");
 
-        let s = streetAddress[0];
-        let c = streetAddress[1];
-        let st = streetAddress[2];
-
-        let stNum = s.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
-        let city = c.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
-        let state = st.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
-        let cityState = city + ", " + state;
-
-        street.push(stNum);
-        self.streetNumber.list = street;
-      });
       return $http
         .get(
           "https://api.darksky.net/forecast/d0aae925c096edd08b9ecffbd0a97ab0/" +
@@ -73,7 +49,7 @@ myApp.service("UserService", [
             long
         )
         .then(function(response) {
-          //console.log(response);
+          console.log(response);
           self.weatherReport.hourly = response.data.hourly;
           self.weatherReport.daily = response.data.daily;
           self.weatherReport.latitude = response.data.latitude;

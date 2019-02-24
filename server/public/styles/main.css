@@ -2,8 +2,13 @@ body,
 html {
   background-color: rgb(190, 190, 190) !important;
 }
+
 #weatherForm {
   margin: 40px auto;
+}
+
+.upper-container {
+  width: 80%;
 }
 
 .weatherDataTitle {
@@ -22,4 +27,24 @@ html {
   position: relative;
   bottom: 5px;
   z-index: 9999;
+}
+
+.hum-icon {
+  height: 30px !important;
+  position: relative;
+  bottom: 3px;
+  margin-right: 5px;
+}
+
+.humDesc {
+  font-size: 35px;
+}
+
+.banner-title-date {
+  text-align: right;
+}
+
+.tempNow {
+  text-align: center;
+  font-size: 5em;
 }
