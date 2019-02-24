@@ -16,14 +16,19 @@ myApp.controller("UserController", [
     self.weatherReport.humidity = UserService.humidity;
     self.weatherReport.temp = UserService.temp;
     self.icon = UserService.icon;
+    self.streetNumber = UserService.streetNumber;
+    console.log(self.streetNumber);
 
     $geolocation
       .getCurrentPosition({
         timeout: 20000
       })
       .then(function(position) {
-        //self.position = position;
         //console.log(position);
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+        //console.log(lat, long);
+
         UserService.locationData(position);
       })
       .catch(function(error) {

@@ -7,7 +7,8 @@ var myApp = angular
     "geolocation",
     "ngMap",
     "ngGeolocation",
-    "angularMoment"
+    "angularMoment",
+    "AngularReverseGeocode"
   ])
   .config(function($mdThemingProvider) {
     $mdThemingProvider
@@ -28,6 +29,7 @@ myApp.config([
     $routeProvider
       .when("/", {
         templateUrl: "/views/templates/test.html",
+        // templateUrl: "/views/templates/mock.html",
         controller: "UserController as vm"
       })
       .otherwise({

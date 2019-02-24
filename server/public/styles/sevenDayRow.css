@@ -21,6 +21,11 @@
   text-align: center;
 }
 
+.fa-arrow-up,
+.fa-arrow-down {
+  margin-right: 5px;
+}
+
 .cardTemps {
   border-bottom: 1px solid white;
   margin: 10px auto;
