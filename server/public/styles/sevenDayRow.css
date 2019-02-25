@@ -1,15 +1,17 @@
 .sevenDay {
   position: relative;
-  top: 40px;
+  /* top: 0px; */
   margin-bottom: 80px;
 }
 
 .weatherCard {
   width: 170px;
-  height: 360px;
+  height: 340px;
   background-color: black;
   color: white;
   text-align: center;
+  border: 1px solid black;
+  border-radius: 4px;
 }
 
 .summary {
@@ -32,10 +34,12 @@
 }
 
 .weatherIcon {
-  height: 70px;
+  height: 120px;
   position: relative;
 }
 
 .icon-container {
   height: 100px;
+  position: relative;
+  bottom: 20px;
 }

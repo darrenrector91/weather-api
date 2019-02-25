@@ -1,9 +1,55 @@
 body,
 html {
-  background-color: rgb(190, 190, 190) !important;
+  /* background-color: rgba(98, 153, 224, 0.432) !important; */
+  background-image: url(../images/winter-image.jpg);
 }
 
-#weatherForm {
+.upper-container {
+  border: 2px solid rgb(36, 36, 36);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  height: 460px;
+  width: 490px !important;
+  background-color: rgba(15, 15, 15, 0.637);
+  color: #c4c4c4;
+}
+
+.sevenDay-container {
+  position: relative;
+  bottom: 20px;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 2px solid #03a9f46b !important;
+}
+
+.temp {
+  font-size: 80px;
+  position: relative;
+  left: 5px;
+}
+
+.humidity-icon {
+  height: 60px;
+}
+
+.icon-desc {
+  position: relative;
+  left: 35px;
+  bottom: 18px;
+  font-size: 40px;
+}
+
+.windHumidity-col {
+  position: relative;
+  top: 20px;
+}
+
+/* #weatherForm {
   margin: 40px auto;
 }
 
@@ -12,12 +58,14 @@ html {
 }
 
 .weatherDataTitle {
-  font-size: 25px;
+  margin: 20px;
+  width: 340px;
 }
 
 .weatherDataDesc {
   font-size: 20px;
   color: rgb(38, 55, 204);
+  text-align: center;
 }
 
 .snow {
@@ -29,17 +77,6 @@ html {
   z-index: 9999;
 }
 
-.hum-icon {
-  height: 30px !important;
-  position: relative;
-  bottom: 3px;
-  margin-right: 5px;
-}
-
-.humDesc {
-  font-size: 35px;
-}
-
 .banner-title-date {
   text-align: right;
 }
@@ -47,4 +84,16 @@ html {
 .tempNow {
   text-align: center;
   font-size: 5em;
+  margin: 20px auto;
+  width: 200px;
 }
+
+
+
+.location {
+  text-align: center;
+}
+
+.current-temp {
+  font-size: 5em;
+} */

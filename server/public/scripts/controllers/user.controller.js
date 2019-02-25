@@ -22,11 +22,8 @@ myApp.controller("UserController", [
     self.hiTemp = UserService.hiTemp;
     self.lowTemp = UserService.lowTemp;
     self.sum = UserService.sum;
-    self.weatherReport.humidity = UserService.humidity;
-    self.weatherReport.temp = UserService.temp;
     self.icon = UserService.icon;
-    // self.streetNumber = UserService.streetNumber;
-    // console.log(self.streetNumber);
+    self.direction = UserService.direction;
 
     self.streetNumber = [];
 

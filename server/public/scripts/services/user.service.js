@@ -36,6 +36,9 @@ myApp.service("UserService", [
     self.icon = {
       list: {}
     };
+    self.direction = {
+      list: {}
+    };
 
     self.locationData = function(position) {
       let lat = position.coords.latitude;
@@ -49,7 +52,7 @@ myApp.service("UserService", [
             long
         )
         .then(function(response) {
-          console.log(response);
+          // console.log(response);
           self.weatherReport.hourly = response.data.hourly;
           self.weatherReport.daily = response.data.daily;
           self.weatherReport.latitude = response.data.latitude;
@@ -59,12 +62,47 @@ myApp.service("UserService", [
           self.dailyTime = response.data.daily.data[1].time;
           self.weatherReport.days = response.data.daily.data;
           let getDaily = self.weatherReport.days;
+
           self.weatherReport.humidity = (
             response.data.currently.humidity * 100
           ).toFixed(0);
           self.weatherReport.temp = response.data.currently.temperature.toFixed(
             0
           );
+          self.weatherReport.windSpeed = response.data.currently.windSpeed.toFixed(
+            0
+          );
+          let windDirection = response.data.currently.windBearing;
+
+          let wind = [];
+          self.direction.list = [];
+
+          var compass = [
+            "N",
+            "NNE",
+            "NE",
+            "ENE",
+            "E",
+            "ESE",
+            "SE",
+            "SSE",
+            "S",
+            "SSW",
+            "SW",
+            "WSW",
+            "W",
+            "WNW",
+            "NW",
+            "NNW",
+            "N"
+          ];
+
+          let direction = compass[Math.round(windDirection / 22.5)];
+
+          if (direction != null) {
+            wind.push(direction);
+            self.direction.list = wind;
+          }
 
           let dataObj = [];
           self.day.list = [];
@@ -90,6 +128,17 @@ myApp.service("UserService", [
 
             let unixTime = getDaily[i].time;
             dataObj.push(unixTime);
+
+            let sunrise = getDaily[0].sunriseTime;
+            console.log(sunrise);
+            if (sunrise != null) {
+              self.sunriseTimeConvert(sunrise);
+            }
+
+            let sunset = getDaily[0].sunsetTime;
+            if (sunset != null) {
+              self.sunsetTimeConvert(sunset);
+            }
 
             let tempHi = getDaily[i].temperatureHigh;
             let a = tempHi.toFixed(0);
@@ -132,6 +181,38 @@ myApp.service("UserService", [
 
         convMonth.push(monthDate);
         self.convertedMonth.list = convMonth;
+      }
+    };
+
+    let convSunrise = [];
+    self.sunriseTimeConvert = function(data) {
+      for (let i = 0; i < data.length; i++) {
+        let sunriseString = moment.unix(data[i]);
+        console.log(sunriseString);
+
+        let r = sunriseString._d;
+        let q = moment(r).format("dddd");
+        console.log(q);
+        let p = moment(r).format("MMMM Do");
+        console.log(p);
+
+        convSunrise.push(p);
+        self.convertedSunrise.list = convSunrise;
+      }
+    };
+
+    let convSunset = [];
+    self.sunsetTimeConvert = function(data) {
+      for (let i = 0; i < data.length; i++) {
+        let sunsetString = moment.unix(data[i]);
+        let t = sunsetString._d;
+        let z = moment(t).format("dddd");
+        console.log(z);
+        let l = moment(t).format("MMMM Do");
+        console.log(l);
+
+        convSunset.push(l);
+        self.convertedSunset.list = convSunset;
       }
     };
   }
