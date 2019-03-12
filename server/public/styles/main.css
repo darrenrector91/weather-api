@@ -93,14 +93,22 @@ hr {
 
 .fa-arrow-up {
   font-size: 30px;
-  color: rgb(109, 0, 0);
-  font-size: 40px;
+  color: firebrick;
+  font-size: 28px;
 }
 
 .fa-arrow-down {
   font-size: 30px;
-  color: rgb(6, 6, 88);
-  font-size: 40px;
+  color: rgb(22, 75, 175);
+  font-size: 28px;
+}
+
+.card-day {
+  font-size: 27px;
+}
+
+.card-date {
+  font-size: 24px;
 }
 
 .map {
