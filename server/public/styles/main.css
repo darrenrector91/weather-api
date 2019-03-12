@@ -8,16 +8,25 @@ html {
   border: 2px solid rgb(36, 36, 36);
   border-radius: 15px;
   padding: 20px;
-  margin: 20px auto;
-  height: 460px;
-  width: 490px !important;
-  background-color: rgba(15, 15, 15, 0.637);
+  height: 570px;
+  width: 1030px !important;
+  background-color: rgba(15, 15, 15, 0.80);
   color: #c4c4c4;
+  position: relative;
+  top: 20px;
 }
 
-.sevenDay-container {
-  position: relative;
-  bottom: 20px;
+.cityName {
+  font-family: "Lato", sans-serif;
+  letter-spacing: 2px;
+  width: 430px;
+  font-size: 36px;
+}
+
+.daily-summary {
+  font-size: 20px;
+  left: 20px;
+  width: 560px;
 }
 
 hr {
@@ -29,8 +38,7 @@ hr {
 
 .temp {
   font-size: 80px;
-  position: relative;
-  left: 5px;
+  /* width: 230px; */
 }
 
 .humidity-icon {
@@ -49,51 +57,80 @@ hr {
   top: 20px;
 }
 
-/* #weatherForm {
-  margin: 40px auto;
+.feels-like-text {
+  font-style: italic;
+  font-size: 25px !important;
 }
 
-.upper-container {
-  width: 80%;
-}
-
-.weatherDataTitle {
-  margin: 20px;
-  width: 340px;
-}
-
-.weatherDataDesc {
-  font-size: 20px;
-  color: rgb(38, 55, 204);
-  text-align: center;
-}
-
-.snow {
-  color: white;
-  height: 90px;
-  width: 130px;
+.temp-container {
+  width: 170px;
+  height: 200px;
   position: relative;
-  bottom: 5px;
-  z-index: 9999;
+  right: 660px;
+  top: 70px;
 }
 
-.banner-title-date {
-  text-align: right;
+.hiTemp {
+  /* border: 1px solid black; */
 }
 
-.tempNow {
+.loTemp {
+  /* border: 1px solid black; */
+  position: relative;
+  left: 0px;
+  bottom: 48px;
+}
+
+.dailyHiTemp {
+  font-size: 40px;
+}
+
+.dailyLoTemp {
+  font-size: 40px;
+}
+
+.fa-arrow-up {
+  font-size: 30px;
+  color: rgb(109, 0, 0);
+  font-size: 40px;
+}
+
+.fa-arrow-down {
+  font-size: 30px;
+  color: rgb(6, 6, 88);
+  font-size: 40px;
+}
+
+.map {
+  height: 330px;
+  width: 490px;
+  border-radius: 15px;
+}
+
+.windspeed {
+  font-size: 25px;
+}
+
+.humidity {
+  font-size: 50px;
+}
+
+.hourlySum {
+  height: 60px;
+  width: 510px;
+  font-size: 21px;
+}
+
+.dayName {
+  width: 500px;
   text-align: center;
-  font-size: 5em;
-  margin: 20px auto;
-  width: 200px;
+  border-bottom: 2px solid #03a9f46b;
+  padding-bottom: 9px;
+  position: relative;
+  bottom: 10px;
+  font-size: 40px;
 }
 
-
-
-.location {
-  text-align: center;
+.fa-tint {
+  color: rgb(35, 35, 151);
 }
-
-.current-temp {
-  font-size: 5em;
-} */

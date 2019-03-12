@@ -1,3 +1,5 @@
+//TODO: Get sunrise/sunset times working and displayed
+
 myApp.service("UserService", [
   "$http",
   "$location",
@@ -14,6 +16,9 @@ myApp.service("UserService", [
     };
     self.currentTime = {
       time: {}
+    };
+    self.feelsLike = {
+      temp: {}
     };
     self.day = {
       list: {}
@@ -39,6 +44,12 @@ myApp.service("UserService", [
     self.direction = {
       list: {}
     };
+    self.weatherReport = {
+      dailyHighTemp: {}
+    };
+    self.weatherReport = {
+      dailyLowTemp: {}
+    };
 
     self.locationData = function(position) {
       let lat = position.coords.latitude;
@@ -58,10 +69,21 @@ myApp.service("UserService", [
           self.weatherReport.latitude = response.data.latitude;
           self.weatherReport.longitude = response.data.longitude;
           self.weatherReport.current = response.data.currently;
+          self.feelsLike.temp = response.data.currently.apparentTemperature.toFixed(
+            0
+          );
           self.currentTime = response.data.currently.time;
           self.dailyTime = response.data.daily.data[1].time;
           self.weatherReport.days = response.data.daily.data;
           let getDaily = self.weatherReport.days;
+          self.weatherReport.dailyHighTemp = response.data.daily.data[0].temperatureMax.toFixed(
+            0
+          );
+          self.weatherReport.dailyLowTemp = response.data.daily.data[0].temperatureMin.toFixed(
+            0
+          );
+          console.log("Daily High", self.weatherReport.dailyHighTemp);
+          console.log("Daily Low", self.weatherReport.dailyLowTemp);
 
           self.weatherReport.humidity = (
             response.data.currently.humidity * 100

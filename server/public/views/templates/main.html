@@ -1,0 +1,197 @@
+<div class="container upper-container">
+  <div class="d-sm-flex p-2">
+    <div class="mr-auto p-2 cityName">{{ vm.cityState }}</div>
+    <div class="ml-auto p-2 daily-summary">
+      {{ vm.weatherReport.daily.summary }}
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-sm-6 ">
+      <div class="dayName">
+        {{ vm.convertedDay.list[0] }}
+      </div>
+        <div class="row">
+          <div class="col-sm-6 temp">
+              {{ vm.weatherReport.temp }}&deg;F
+          </div>
+          <div class="col-sm-6">
+              <div class="row dailyHiTemp">{{ vm.weatherReport.dailyHighTemp }}&deg;F</div>
+              <div class="row dailyLoTemp">{{ vm.weatherReport.dailyLowTemp }}&deg;F</div>
+          </div>
+          
+        </div>
+        <div class="row">
+          <div class="col-sm-6 feels-like-text">
+              Feels like:{{ vm.feelsLike.temp }}&deg;F
+          </div>
+          <div class="col-sm-6 windspeed">
+              Wind: {{ vm.weatherReport.windSpeed }}mph {{ vm.direction.list[0] }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 humidity">
+              {{ vm.weatherReport.humidity }}%
+          </div>
+          <!-- <div class="col-sm-4"></div>{{ vm.weatherReport.hourly.summary }}</div> -->
+        </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="map-container">
+        <ng-map
+          class="map"
+          center="{{ vm.weatherReport.latitude }}, {{
+            vm.weatherReport.longitude
+          }}"
+        >
+          <marker
+            position="[{{ vm.weatherReport.latitude }}, {{
+              vm.weatherReport.longitude
+            }}]"
+          ></marker>
+        </ng-map>
+      </div>
+    </div>
+  </div>
+</div>
+      <!-- CARDS -->
+      <div class="container-fluid sevenDay-container">
+        <div class="row sevenDay">
+          <div class="col-sm">
+            <div class="card weatherCard">
+              <div class="card-body">
+                <h5 class="card-title">{{ vm.convertedDay.list[0] }}
+                    <div></h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ vm.convertedMonth.list[0] }}</h6>
+                <p class="card-text cardTemps">
+                    <i class="fas fa-arrow-up"></i>{{ vm.hiTemp.list[0] }}&deg;
+                    <i class="fas fa-arrow-down"></i>{{ vm.lowTemp.list[0] }}&deg;
+                </p>
+                <p class="summary card-text">
+                    {{vm.sum.list[0]}}
+                </p>
+                <div class="icon-container">
+                    <img class="weatherIcon" ng-src="../../images/icons/{{vm.icon.list[0]}}.png">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card weatherCard">
+              <div class="card-body">
+                <h5 class="card-title">{{ vm.convertedDay.list[1] }}
+                    <div></h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ vm.convertedMonth.list[1] }}</h6>
+                <p class="card-text cardTemps">
+                    <i class="fas fa-arrow-up"></i>{{ vm.hiTemp.list[1] }}&deg;
+                    <i class="fas fa-arrow-down"></i>{{ vm.lowTemp.list[1] }}&deg;
+                </p>
+                <p class="summary card-text">
+                    {{vm.sum.list[1]}}
+                </p>
+                <div class="icon-container">
+                  <img class="weatherIcon" ng-src="../../images/icons/{{vm.icon.list[1]}}.png">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card weatherCard">
+              <div class="card-body">
+                <h5 class="card-title">{{ vm.convertedDay.list[2] }}
+                    <div></h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ vm.convertedMonth.list[2] }}</h6>
+                <p class="card-text cardTemps">
+                    <i class="fas fa-arrow-up"></i>{{ vm.hiTemp.list[2] }}&deg;
+                    <i class="fas fa-arrow-down"></i>{{ vm.lowTemp.list[2] }}&deg;
+                </p>
+                <p class="summary card-text">
+                    {{vm.sum.list[2]}}
+                </p>
+                <div class="icon-container">
+                  <img class="weatherIcon" ng-src="../../images/icons/{{vm.icon.list[2]}}.png">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card weatherCard">
+              <div class="card-body">
+                <h5 class="card-title">{{ vm.convertedDay.list[3] }}
+                    <div></h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ vm.convertedMonth.list[3] }}</h6>
+                <p class="card-text cardTemps">
+                    <i class="fas fa-arrow-up"></i>{{ vm.hiTemp.list[3] }}&deg;
+                    <i class="fas fa-arrow-down"></i>{{ vm.lowTemp.list[3] }}&deg;
+                </p>
+                <p class="summary card-text">
+                    {{vm.sum.list[3]}}
+                </p>
+                <div class="icon-container">
+                  <img class="weatherIcon" ng-src="../../images/icons/{{vm.icon.list[3]}}.png">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card weatherCard">
+              <div class="card-body">
+                <h5 class="card-title">{{ vm.convertedDay.list[4] }}
+                    <div></h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ vm.convertedMonth.list[4] }}</h6>
+                <p class="card-text cardTemps">
+                    <i class="fas fa-arrow-up"></i>{{ vm.hiTemp.list[4] }}&deg;
+                    <i class="fas fa-arrow-down"></i>{{ vm.lowTemp.list[4] }}&deg;
+                </p>
+                <p class="summary card-text">
+                    {{vm.sum.list[4]}}
+                </p>
+                <div class="icon-container">
+                  <img class="weatherIcon" ng-src="../../images/icons/{{vm.icon.list[4]}}.png">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card weatherCard">
+              <div class="card-body">
+                <h5 class="card-title">{{ vm.convertedDay.list[5] }}
+                    <div></h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ vm.convertedMonth.list[5] }}</h6>
+                <p class="card-text cardTemps">
+                    <i class="fas fa-arrow-up"></i>{{ vm.hiTemp.list[5] }}&deg;
+                    <i class="fas fa-arrow-down"></i>{{ vm.lowTemp.list[5] }}&deg;
+                </p>
+                <p class="summary card-text">
+                    {{vm.sum.list[5]}}
+                </p>
+                <div class="icon-container">
+                  <img class="weatherIcon" ng-src="../../images/icons/{{vm.icon.list[5]}}.png">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card weatherCard">
+              <div class="card-body">
+                <h5 class="card-title">{{ vm.convertedDay.list[6] }}
+                    <div></h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ vm.convertedMonth.list[6] }}</h6>
+                <p class="card-text cardTemps">
+                    <i class="fas fa-arrow-up"></i>{{ vm.hiTemp.list[6] }}&deg;
+                    <i class="fas fa-arrow-down"></i>{{ vm.lowTemp.list[6] }}&deg;
+                </p>
+                <p class="summary card-text">
+                    {{vm.sum.list[6]}}
+                </p>
+                <div class="icon-container">
+                  <img class="weatherIcon" ng-src="../../images/icons/{{vm.icon.list[6]}}.png">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

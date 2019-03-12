@@ -28,7 +28,7 @@ myApp.config([
     // console.log("myApp -- config");
     $routeProvider
       .when("/", {
-        templateUrl: "/views/templates/test.html",
+        templateUrl: "/views/templates/main.html",
         // templateUrl: "/views/templates/mock.html",
         controller: "UserController as vm"
       })

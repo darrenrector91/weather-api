@@ -24,6 +24,7 @@ myApp.controller("UserController", [
     self.sum = UserService.sum;
     self.icon = UserService.icon;
     self.direction = UserService.direction;
+    self.feelsLike = UserService.feelsLike;
 
     self.streetNumber = [];
 

@@ -6,9 +6,6 @@ node_modules/
 .vscode/
 .env
 ic_*
-text.html
-test.html
-test.js
 scratch_pad
 *.scss
 *.ttf

@@ -1,13 +1,17 @@
+.sevenDay-container {
+  position: relative;
+  top: 130px;
+  width: 1400px;
+}
+
 .sevenDay {
   position: relative;
-  /* top: 0px; */
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 }
 
 .weatherCard {
   width: 170px;
-  height: 340px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.80);
   color: white;
   text-align: center;
   border: 1px solid black;
@@ -30,16 +34,32 @@
 
 .cardTemps {
   border-bottom: 1px solid white;
-  margin: 10px auto;
+  width: 146px;
+  font-size: 20px;
+  position: relative;
+  right: 12px;
+}
+
+.top-weatherIcon {
+  height: 90px;
+  position: relative;
+  left: 41px;
+  bottom: 20px;
 }
 
 .weatherIcon {
-  height: 120px;
+  height: 90px;
   position: relative;
+  left: 0px;
+  bottom: 0px;
 }
 
 .icon-container {
   height: 100px;
   position: relative;
-  bottom: 20px;
+  top: 20px;
+}
+
+.card-subtitle {
+  color: white !important;
 }
