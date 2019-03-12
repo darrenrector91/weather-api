@@ -1,7 +1,8 @@
 body,
 html {
   /* background-color: rgba(98, 153, 224, 0.432) !important; */
-  background-image: url(../images/winter-image.jpg);
+  /* background-image: url(../images/early_spring.jpg) no-repeat; */
+  background: url(../images/spring3.jpeg) no-repeat;
 }
 
 .upper-container {
@@ -10,7 +11,7 @@ html {
   padding: 20px;
   height: 570px;
   width: 1030px !important;
-  background-color: rgba(15, 15, 15, 0.80);
+  background-color: rgba(15, 15, 15, 0.8);
   color: #c4c4c4;
   position: relative;
   top: 20px;
@@ -27,6 +28,11 @@ html {
   font-size: 20px;
   left: 20px;
   width: 560px;
+}
+
+.daily-temps {
+  position: relative;
+  top: 20px;
 }
 
 hr {
@@ -70,10 +76,6 @@ hr {
   top: 70px;
 }
 
-.hiTemp {
-  /* border: 1px solid black; */
-}
-
 .loTemp {
   /* border: 1px solid black; */
   position: relative;
@@ -109,6 +111,8 @@ hr {
 
 .windspeed {
   font-size: 25px;
+  top: 20px;
+  right: 13px;
 }
 
 .humidity {

@@ -15,15 +15,15 @@
           <div class="col-sm-6 temp">
               {{ vm.weatherReport.temp }}&deg;F
           </div>
-          <div class="col-sm-6">
-              <div class="row dailyHiTemp">{{ vm.weatherReport.dailyHighTemp }}&deg;F</div>
-              <div class="row dailyLoTemp">{{ vm.weatherReport.dailyLowTemp }}&deg;F</div>
+          <div class="col-sm-6 daily-temps">
+              <div class="row dailyHiTemp"><span style="color:rgb(22, 75, 175);">Hi:&nbsp;</span> {{ vm.weatherReport.dailyHighTemp }}&deg;F</div>
+              <div class="row dailyLoTemp"><span style="color:firebrick;">Lo:&nbsp;</span> {{ vm.weatherReport.dailyLowTemp }}&deg;F</div>
           </div>
           
         </div>
         <div class="row">
           <div class="col-sm-6 feels-like-text">
-              Feels like:{{ vm.feelsLike.temp }}&deg;F
+              Feels like: {{ vm.feelsLike.temp }}&deg;F
           </div>
           <div class="col-sm-6 windspeed">
               Wind: {{ vm.weatherReport.windSpeed }}mph {{ vm.direction.list[0] }}
@@ -32,6 +32,7 @@
         <div class="row">
           <div class="col-sm-6 humidity">
               {{ vm.weatherReport.humidity }}%
+              <img src="../../images/humidity_icon2.png" alt="" style="height: 50px; position: relative; bottom: 5px;">
           </div>
           <!-- <div class="col-sm-4"></div>{{ vm.weatherReport.hourly.summary }}</div> -->
         </div>
